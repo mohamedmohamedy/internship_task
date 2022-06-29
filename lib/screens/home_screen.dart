@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 // Here I import my other screens for navigation:
 import './sign_in_screen.dart';
+import './sign_up_screen.dart';
 
 // Here I import my helper widgets.
 import '../widgets/buttons/public_button.dart';
@@ -63,7 +64,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const Text('Don\'t have an account?'),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pushNamed(SignUpScreen.routeName),
                   child: const Text('Sign up'),
                 ),
               ],

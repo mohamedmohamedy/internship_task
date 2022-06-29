@@ -2,8 +2,12 @@
 
 import 'package:flutter/material.dart';
 
+// Screens that i will navigate to..
+import '../screens/sign_up_screen.dart';
+
 // these are my helper reusable widgets.
 import '../widgets/phone_form.dart';
+import '../widgets/welcome_sentence.dart';
 import '../widgets/buttons/public_button.dart';
 import '../widgets/buttons/sign_in_by_google.dart';
 import '../widgets/buttons/public_text_button.dart';
@@ -29,16 +33,7 @@ class SignInScreen extends StatelessWidget {
             ),
 
             //..................Welcome text............................
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Text(
-                'Welcome to your delivery services',
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontFamily: 'UnicaOne',
-                ),
-              ),
-            ),
+            const WelcomeSentence(),
 
             //...........................Sign in and Help....................
             Padding(
@@ -102,7 +97,10 @@ class SignInScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('Doesn\'t have any account?'),
-                PublicTextButton(function: () {}, text: 'Register here'),
+                PublicTextButton(
+                  function: () => Navigator.of(context).pushNamed(SignUpScreen.routeName), 
+                text: 'Register here',
+                ),
               ],
             ),
 
@@ -123,3 +121,4 @@ class SignInScreen extends StatelessWidget {
     );
   }
 }
+

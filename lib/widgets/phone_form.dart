@@ -17,7 +17,6 @@ class PhoneForm extends StatelessWidget {
           child: Text('Phone Number'),
         ),
         PhoneFormField(
-          
           showFlagInInput: true,
           defaultCountry: IsoCode.EG,
           shouldFormat: true,
