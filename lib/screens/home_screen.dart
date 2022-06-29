@@ -32,7 +32,8 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.only(left: screenSize.width / 1.4, top: 5),
               child: PublicButton(
                 backgroundColor: const Color.fromRGBO(249, 243, 233, 1),
-                function: () {},
+                function: () =>
+                    Navigator.of(context).pushNamed(SignInScreen.routeName),
                 width: 50,
                 text: 'Skip',
                 borderRadius: 25,
@@ -43,15 +44,17 @@ class HomeScreen extends StatelessWidget {
             //.............................Headline.......................................
             const HeadLine(),
             //.............................Middle Container............................
-           
-           // Here I use a custom Periodic Changing widget to control the changing elements in the screen.
+
+            // Here I use a custom Periodic Changing widget to control the changing elements in the screen.
             const ChangingContainer(),
             //.................................... Bottom Button.....................................
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: PublicButton(
                 backgroundColor: Colors.teal,
-                function: ()  {Navigator.of(context).pushNamed(SignInScreen.routeName);},
+                function: () {
+                  Navigator.of(context).pushNamed(SignInScreen.routeName);
+                },
                 width: screenSize.width,
                 text: 'Get started',
                 borderRadius: 15,
@@ -64,7 +67,8 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const Text('Don\'t have an account?'),
                 TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed(SignUpScreen.routeName),
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed(SignUpScreen.routeName),
                   child: const Text('Sign up'),
                 ),
               ],
