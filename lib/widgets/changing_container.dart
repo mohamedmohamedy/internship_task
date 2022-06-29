@@ -18,12 +18,13 @@ class _ChangingContainerState extends State<ChangingContainer> {
   bool _firstContainer = true;
   bool _secondContainer = false;
   bool _thirdContainer = false;
+  late Timer timer;
 
   @override
   void initState() {
     super.initState();
 
-    Timer.periodic(
+    timer = Timer.periodic(
       const Duration(seconds: 3),
       (timer) {
         // change the first container to the second.
@@ -65,7 +66,13 @@ class _ChangingContainerState extends State<ChangingContainer> {
       },
     );
   }
-  
+
+  @override
+  void dispose() {
+    super.dispose();
+    timer.cancel();
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -80,7 +87,7 @@ class _ChangingContainerState extends State<ChangingContainer> {
             secondText:
                 'We have young and professional delivery team that will bring your food as soon as possible to your doorstep ',
           ),
-    
+
         // Our second container that will appear after 3 second from opening the app and will change after another 3 seconds
         if (_secondContainer)
           MiddleContainer(
@@ -90,7 +97,7 @@ class _ChangingContainerState extends State<ChangingContainer> {
             secondText:
                 'We are constantly adding your favorite throughout the territory and around your area carefully selected',
           ),
-    
+
         // Our third Container will appear after the second container by 3 seconds.
         if (_thirdContainer)
           MiddleContainer(
@@ -100,7 +107,7 @@ class _ChangingContainerState extends State<ChangingContainer> {
             secondText:
                 'We provide our customers a live location checker so they can watch there order\'s route until it reach them peacefully',
           ),
-    
+
         //...............................Small Icons.............................................
         Positioned(
           bottom: 0,

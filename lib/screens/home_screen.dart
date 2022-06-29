@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 
+// Here I import my other screens for navigation:
+import './sign_in_screen.dart';
+
 // Here I import my helper widgets.
-import '../widgets/public_button.dart';
+import '../widgets/buttons/public_button.dart';
 import '../widgets/headline.dart';
 import '../widgets/changing_container.dart';
 
@@ -47,7 +50,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8.0),
               child: PublicButton(
                 backgroundColor: Colors.teal,
-                function: () {},
+                function: ()  {Navigator.of(context).pushNamed(SignInScreen.routeName);},
                 width: screenSize.width,
                 text: 'Get started',
                 borderRadius: 15,

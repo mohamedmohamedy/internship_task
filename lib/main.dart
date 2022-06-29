@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // app screens:-
 import './screens/home_screen.dart';
+import './screens/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,13 +19,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Colors.teal,
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: Colors.teal,
         ),
       ),
       home: const HomeScreen(),
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
+        SignInScreen.routeName: (context) => const SignInScreen(),
       },
     );
   }
